@@ -1,0 +1,63 @@
+@import 'mixins';
+$primaryColor: #059dec;
+html {
+    font-size: 1em;
+    line-height: 1.35;
+    @include bp-babyBear {
+        font-size: .8em;
+    }
+    @include bp-papaBear {
+        font-size: 1.2em;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: $primaryColor;
+}
+
+@import 'header';
+.btn-a {
+    display: inline-block;
+    padding: 15px;
+    margin-right: 10px;
+    border: 1px solid $primaryColor;
+    border-radius: 7px;
+    font-size: 80%;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@import 'mixins';
+// .btn-b {
+//     @extend .btn-a;
+//     background-color: lighten($primaryColor, 45%);
+// }
+.btn-b {
+    @extend .btn-a;
+    @include verticalGradient(white, lighten($primaryColor, 30%));
+}
+
+.box {
+    background-color: #DDD;
+    width: (150px * 2);
+    height: (100px *2);
+}
+
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}
